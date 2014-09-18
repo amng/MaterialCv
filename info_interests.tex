@@ -1,4 +1,12 @@
 %!TEX root = cv.tex
+\newcommand{\textBox}[1]{
+\hspace*{7pt}
+\begin{tabular}{  p{\dimexpr 0.97\linewidth-2\tabcolsep} }
+  	{\normalsize #1}
+\end{tabular}
+\vspace*{10pt}
+}
+
 \LARGE
 \noindent\colorbox{materialYellow}
 {\parbox[c][25pt][c]{\textwidth}{\hspace{15pt}\textcolor{white}{Interests}}} %%Contacts separator
@@ -8,13 +16,13 @@
 \vspace*{10pt}
 
 \textcolor{materialYellow}{\textbf{Profes}}\textcolor{textGray}{\textbf{sional:}}\\
-{\normalsize\hspace*{12pt}
-professional interests....%%edit professional interest here
+\textBox{
+professional interests.... %%edit professional interest here
 }\\
 
 \textcolor{materialYellow}{\textbf{Pers}}\textcolor{textGray}{\textbf{onal:}}\\
-{\normalsize\hspace*{12pt}
-personal interests....%%edit personal interest here
-}
+\textBox{
+personal interests....%%edit professional interest here
+}\\
 
 \vspace*{10pt}

@@ -1,0 +1,27 @@
+%!TEX root = pic.tex
+
+%%Command used in order to make each entry cleaner
+
+\newcommand{\ExperienceEntry}[5]{
+\begin{tabular}{ l l r }
+  \textbf{\textcolor{materialRedDark}{#1-}}\textbf{\textcolor{materialRed}{#2}}\hspace{20pt} & \textbf{#3} & {\small \textcolor{textLightGray}{#5}}\\
+  	& \normalsize #4\\
+\end{tabular}
+\vspace*{10pt}
+}
+
+\LARGE
+\noindent\colorbox{materialRed}
+{\parbox[c][25pt][c]{\textwidth}{\hspace{15pt}\textcolor{white}{Experience}}} %%Contacts separator
+
+%%Contact Information
+\large
+\vspace*{10pt}
+%Add new or alter education entries in this section by using the examples below
+%\ExperienceEntry{starting year}{final year}{Position}{position description if applicable}{Place}
+\ExperienceEntry{2000}{2014}{Position 0}{Job description....}{Place x}
+
+\ExperienceEntry{2000}{2014}{Position 1}{Job description....}{Place y}
+
+
+\vspace*{5pt}

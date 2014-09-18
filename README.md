@@ -6,6 +6,7 @@ Google Material Design for the new Android 5.0 L
 version, using the font Roboto from Android.
 
 The compilation should be made using XeTeX.
+In order to make it easier to edit each of the sections, all the sections were separated into individual .tex files.
 
 Aknowledgements:
 

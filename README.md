@@ -1,9 +1,10 @@
-# MaterialCV (latex)
-==========
+# MaterialCV
 
-Description: This template design was based on the
-Google Material Design for the new Android 5.0 L 
-version, using the font Roboto from Android.
+![Material CV preview](https://raw.githubusercontent.com/amng/MaterialCv/master/images/preview.PNG)
+
+Description: This latex template design was based on the Google Material Design for the new Android 5.0 L version, using the font Roboto from Android.
+
+In order to replace the main image with a profile picture for example, just replace the pic.png file in the images folder with another with the same size (2048x600), since other resolutions might need changes to the code.
 
 The compilation should be made using XeTeX.
 In order to make it easier to edit each of the sections, all the sections were separated into individual .tex files.

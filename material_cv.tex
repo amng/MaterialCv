@@ -1,0 +1,68 @@
+%%!TEX program = xelatex
+%%========================================================================================================
+%% Material CV
+%% Author: Artur Gomes
+%%
+%% Description: This template design was based on the
+%% Google Material Design for the new Android 5.0 L 
+%% version.
+%%
+%% Aknowledgements
+%% The font used was the font Roboto used in Android:
+%% http://developer.android.com/design/style/typography.html
+%% 
+%% Used the elegant font iconset for icons (colors were changed acording to the color of the separator):
+%% http://www.flaticon.com/packs/elegant-font
+%%========================================================================================================
+% http://tex.stackexchange.com/questions/140960/custom-shadow-border-effect-with-tikz
+
+\documentclass{article}
+\usepackage{tikz}
+%\usepackage{fontspec}
+\usepackage[sfdefault]{roboto}
+\usepackage[top=0cm, bottom=2cm, outer=0cm, inner=0cm]{geometry}
+\usepackage[pages=some]{background}
+\usepackage{materialCard}
+\usepackage{multicol}
+
+\backgroundsetup{scale=1, color=black, opacity=1, placement=top, angle=0, contents={%
+  \includegraphics[width=\paperwidth,height=150pt]{images/pic}
+  }}
+\begin{document}
+\begin{minipage}[t]{\paperwidth}
+	\pagenumbering{gobble}
+	\vspace*{50pt} %spacing used to move the first and last name down
+	\Large
+	\BgThispage
+\end{minipage}
+%\LARGE
+%\noindent\colorbox{MaterialGreen}
+%{\parbox[c][25pt][c]{\textwidth}{\hspace{15pt}\textcolor{white}{Contacts}}} %%Contacts separator
+\hspace*{10pt} 
+\begin{minipage}[t]{\paperwidth}
+	\vspace{75pt}
+	\large
+	\vspace{5pt}
+	\begin{multicols}{2}
+	\materialCard[topimage=images/profile,topcolor=MaterialRed500, cardwidth=0.2\paperwidth, topheight=68pt]{\input{info_profile}}
+	\materialCard[title=Contacts, topcolor=MaterialGreen500, cardwidth=0.67\paperwidth]{\input{info_contacts}}
+	\end{multicols}{}
+
+	\large
+	\materialCard[title=Experience, topcolor=MaterialRed500]{\input{info_experience}}{}
+
+	\large
+	\vspace{5pt}
+	\materialCard[title=Education, topcolor=MaterialBlue500]{\input{info_education}}
+
+
+	\large
+	\vspace{5pt}
+	\materialCard[title=Interests, topcolor=MaterialAmber500]{\input{info_interests}}
+
+	\large
+	\vspace{5pt}
+	\materialCard[title=Awards, topcolor=MaterialPurple500]{\input{info_awards}}
+\end{minipage}
+%\materialCard[title=Mater222222222222222222222222222ial123Card, image=MaterialRed500]{\begin{tabular}{c} This node \\ is \\ valuable \end{tabular}}{card2}\\\\
+\end{document}

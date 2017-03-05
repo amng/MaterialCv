@@ -1,28 +1,26 @@
 %!TEX root = cv.tex
 \newcommand{\textBox}[1]{
-\hspace*{7pt}
-\begin{tabular}{  p{\dimexpr 0.97\linewidth-2\tabcolsep} }
+\begin{tabular}{ p{\dimexpr 0.9\linewidth-4\tabcolsep} }
   	{\normalsize #1}
 \end{tabular}
-\vspace*{10pt}
+\vspace{1pt}
 }
 
-\LARGE
-\noindent\colorbox{materialYellow}
-{\parbox[c][25pt][c]{\textwidth}{\hspace{15pt}\textcolor{white}{Interests}}} %%Contacts separator
+%\LARGE
+%\noindent\colorbox{MaterialAmber500}
+%{\parbox[c][25pt][c]{\textwidth}{\hspace{15pt}\textcolor{white}{Interests}}} %%Contacts separator
 
 %%Contact Information
 \large
-\vspace*{10pt}
-
-\textcolor{materialYellow}{\textbf{Profes}}\textcolor{textGray}{\textbf{sional:}}\\
+\begin{minipage}[t]{0.83\linewidth}
+\textcolor{MaterialAmber500}{\textbf{Profes}}\textcolor{MaterialGrey700}{\textbf{sional:}}\\
 \textBox{
 professional interests.... %%edit professional interest here
 }\\
 
-\textcolor{materialYellow}{\textbf{Pers}}\textcolor{textGray}{\textbf{onal:}}\\
+
+\textcolor{MaterialAmber500}{\textbf{Pers}}\textcolor{MaterialGrey700}{\textbf{onal:}}\\
 \textBox{
 personal interests....%%edit professional interest here
 }\\
-
-\vspace*{10pt}
+\end{minipage}

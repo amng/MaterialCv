@@ -1,0 +1,125 @@
+%########################################################################
+% Material Card for latex
+% Check some examples in the material_cv.tex
+% If you need more documentation on how to use this just create an issue
+%########################################################################
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{materialCard}[2016/02/03 Material Card (based on material design)]
+
+\RequirePackage{tikz}
+\RequirePackage{xcolor-material}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{keyval}
+
+\usetikzlibrary{shapes.multipart, backgrounds, calc, shadows.blur}
+
+%\setmainfont{Roboto}
+\def\pgfsysdriver{pgfsys-dvipdfmx.def}%%%% the correct driver for xelatex
+
+% ========= KEY DEFINITIONS =========
+\define@key{materialcard}{cardwidth}{\def\materialcard@cardwidth{#1}}
+\define@key{materialcard}{topheight}{\def\materialcard@topheight{#1}}
+\define@key{materialcard}{topcolor}{\def\materialcard@topcolor{#1}}
+\define@key{materialcard}{bottomcolor}{\def\materialcard@bottomcolor{#1}}
+\define@key{materialcard}{title}{\def\materialcard@title{#1}}
+\define@key{materialcard}{topimage}{\def\materialcard@topimage{#1}}
+\define@key{materialcard}{bottomimage}{\def\materialcard@bottomimage{#1}}
+\define@key{materialcard}{completeimage}{\def\materialcard@completeimage{#1}}
+% ========= KEY DEFAULTS =========
+\setkeys{materialcard}{title=,topimage=,cardwidth=0.9\paperwidth, topcolor=white, bottomcolor=white, topheight=15pt}
+
+
+%http://tex.stackexchange.com/questions/11272/faded-drop-shadow-using-tikz-based-rounded-rectangle
+\newcommand\addcurlyshadow[2][]{
+    % #1: Optional aditional tikz options
+    % #2: Name of the node to "decorate"
+    \begin{pgfonlayer}{shadow}
+        \path[
+           rounded corners=1pt,
+           blur shadow={shadow xshift=0pt,
+           shadow yshift=-0.3pt,
+           shadow blur steps=6,
+           shadow blur radius=.6pt}, #1]
+            ($(#2.north west)+( 0.3pt,0)$) --
+            ($(#2.south west)+( 0.3pt,0)$) --
+            ($(#2.south east)+(-0.3pt,0)$) --
+            ($(#2.north east)+(-0.3pt,0)$) --
+        cycle;
+       
+    \end{pgfonlayer}
+}
+
+%get the width of a picture:
+%http://tex.stackexchange.com/questions/8691/widthof-within-tikzpicture
+\newcommand\getwidthofnode[2]{%
+    \pgfextractx{#1}{\pgfpointanchor{#2}{east}}%
+    \pgfextractx{\pgf@xa}{\pgfpointanchor{#2}{west}}% \pgf@xa is a length defined by PGF for temporary storage. No need to create a new temporary length.
+    \addtolength{#1}{-\pgf@xa}%
+}
+\newlength\cardLength
+
+% this draws a shadow under a rectangle node
+\newcommand\drawimage[1]{
+    \begin{pgfonlayer}{midlayer}
+    %\node [draw=black, anchor=south west] (label) at $(#1.south west)$) rectangle ($(#1.north east)$) {\includegraphics{images/pic}};
+        %\filldraw ($(#1.south west)$) rectangle ($(#1.north east)$){red};
+        \getwidthofnode{\cardLength}{#1}
+        \ifdefined\materialcard@completeimage
+            \begin{scope}
+                \clip[rounded corners=0.5pt]($(#1.north west)$) rectangle ($(#1.south east)$);
+                \node at (0,0) {\includegraphics[width=\cardLength] {\materialcard@completeimage}};
+            \end{scope}
+        \else
+            \ifdefined\materialcard@topimage
+                \begin{scope}
+                    \clip[rounded corners=0.5pt]($(#1.north west)$) rectangle ($(#1.one split east)$);
+                    \node at (0,0) {\includegraphics[width=\cardLength] {\materialcard@topimage}};
+                \end{scope}
+            \else
+                \begin{scope}
+                    \clip[rounded corners=0.5pt]($(#1.north west)$) rectangle ($(#1.one split east)$);
+                    \filldraw[\materialcard@topcolor]($(#1.south west)$) rectangle ($(#1.north east)$);
+                \end{scope}
+            \fi
+
+            \ifdefined\materialcard@bottomimage
+                  \begin{scope}
+                      \clip[rounded corners=0.5pt]($(#1.one split west)$) rectangle ($(#1.south east)$);
+                      \node at (0,0) {\includegraphics[width=\cardLength] {\materialcard@bottomimage}};
+                  \end{scope}
+            \else
+                  \begin{scope}
+                      \clip[rounded corners=0.5pt]($(#1.one split west)$) rectangle ($(#1.south east)$);
+                      \filldraw[\materialcard@bottomcolor]($(#1.south west)$) rectangle ($(#1.north east)$);
+                  \end{scope}
+            \fi 
+        \fi  
+    \end{pgfonlayer}
+}
+
+\pgfdeclarelayer{shadow} 
+\pgfdeclarelayer{midlayer} 
+\pgfsetlayers{shadow,midlayer,main}
+
+\newcommand\materialCard[2][]{
+  % arguments
+  % #1 => the arguments given in []
+  % #2 => the content of the bottom of the card
+  \let\materialcard@topimage\undefined
+  \setkeys{materialcard}{cardwidth=0.9\paperwidth, topheight=15pt}
+	\setkeys{materialcard}{#1} % Set new keys
+  \begin{tikzpicture}
+      \node[rectangle split,
+            rectangle split parts=2,
+            rectangle split part fill={\materialcard@topcolor,\materialcard@bottomcolor},
+            opacity=.0,text opacity=1,
+            rounded corners=0.5pt]
+         (materialCard){
+         \nodepart{one} 
+                    \begin{minipage}[t][\materialcard@topheight]{\materialcard@cardwidth}\vspace{4pt}\textcolor{white}{\materialcard@title}\vspace{2pt}\end{minipage}
+         \nodepart{two}  #2};
+      \addcurlyshadow{materialCard}
+      \drawimage{materialCard}
+  \end{tikzpicture}
+}

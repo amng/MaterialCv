@@ -4,7 +4,7 @@ In case you want to use the previous version (1.0) just checkout the tag v1.0.
 
 MaterialCV V1.0             |  MaterialCV V2.0
 :-------------------------:|:-------------------------:
-![Material CV preview](https://raw.githubusercontent.com/amng/MaterialCv/master/images/preview.png)  | ![Material CV preview](https://raw.githubusercontent.com/amng/MaterialCv/master/images/preview2.png)
+![Material CV preview](https://raw.githubusercontent.com/amng/MaterialCv/master/images/preview.PNG)  | ![Material CV preview v2.0](https://raw.githubusercontent.com/amng/MaterialCv/master/images/preview2.png)
 
 
 

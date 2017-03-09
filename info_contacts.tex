@@ -1,38 +1,41 @@
-%!TEX root = cv.tex
+%!TEX root = material_cv.tex
 
 \newcommand{\ContactEntry}[2]{
-	\normalsize
+	\scriptsize	
 	$\begin{array}{l}
-	{\includegraphics[height=10pt]{#1}}
+	{\includegraphics[height=7pt]{#1}}
 	\end{array}
 	$ #2
 }
 
 
-%\LARGE
 %\noindent\colorbox{materialGreen}
 %{\parbox[c][25pt][c]{\textwidth}{\hspace{15pt}\textcolor{white}{Contacts}}} %%Contacts separator
-\begin{minipage}[t]{0.66\textwidth}
-	\vspace{1pt}
+\hspace*{-30pt}
+\begin{minipage}[t]{0.47\textwidth}
+	\vspace{85pt}
+	\large
+	\textcolor{white}{\hspace{5pt}Contacts}
+	\vspace{-10pt}
 	\begin{multicols}{2}
 		%%Contact Information
 		%Add new or alter contact entries in this section by using the examples below
 		%for other contact information search the image folder for other icons
-		\ContactEntry{images/green/ic_phone}{111-222-3333}
+		\ContactEntry{images/green/ic_phone}{\textcolor{white}{111-222-3333}}
 
-		\ContactEntry{images/green/ic_email}{mail@mail.com}
+		\ContactEntry{images/green/ic_email}{\textcolor{white}{mail@mail.com}}
 
-		\ContactEntry{images/green/ic_web}{http://mywebsite.com}
+		\ContactEntry{images/green/ic_web}{\textcolor{white}{http://mywebsite.com}}
 
-		\ContactEntry{images/green/ic_people}{https://www.linkedin.com/in/yourname}
+		\ContactEntry{images/green/ic_people}{\textcolor{white}{https://www.linkedin.com/in/yourname}}
 
 		\columnbreak
 
-		\ContactEntry{images/green/ic_home}{Street, number
+		\ContactEntry{images/green/ic_home}{\textcolor{white}{Street, number}
 
-		\hspace{22pt}City, State 0000-0000
+		\hspace{19pt}\textcolor{white}{City, State 0000-0000}
 
-		\hspace{22pt}Country}
+		\hspace{19pt}\textcolor{white}{Country}}
 	\end{multicols}
 	\vspace{0.1pt}
 \end{minipage}

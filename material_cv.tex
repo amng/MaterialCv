@@ -24,14 +24,19 @@
 \usepackage[pages=some]{background}
 \usepackage{materialCard}
 \usepackage{multicol}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage{pagecolor,lipsum}% http://ctan.org/pkg/{pagecolor,lipsum}
+\usepackage[T1]{fontenc}
 
 \backgroundsetup{scale=1, color=black, opacity=1, placement=top, angle=0, contents={%
-  \includegraphics[width=\paperwidth,height=150pt]{images/pic}
+  \includegraphics[width=\paperwidth,height=250pt]{images/pic}
   }}
 \begin{document}
+\pagecolor{MaterialGrey200}
+
 \begin{minipage}[t]{\paperwidth}
 	\pagenumbering{gobble}
-	\vspace*{50pt} %spacing used to move the first and last name down
 	\Large
 	\BgThispage
 \end{minipage}
@@ -40,14 +45,16 @@
 %{\parbox[c][25pt][c]{\textwidth}{\hspace{15pt}\textcolor{white}{Contacts}}} %%Contacts separator
 \hspace*{10pt} 
 \begin{minipage}[t]{\paperwidth}
-	\vspace{75pt}
 	\large
-	\vspace{5pt}
-	\begin{multicols}{2}
-	\materialCard[topimage=images/profile,topcolor=MaterialRed500, cardwidth=0.2\paperwidth, topheight=68pt]{\input{info_profile}}
-	\materialCard[title=Contacts, topcolor=MaterialGreen500, cardwidth=0.67\paperwidth]{\input{info_contacts}}
-	\end{multicols}{}
 
+	\vspace*{20pt} 
+	\begin{multicols}{2}
+	%\materialCard[topimage=images/profile2,topcolor=MaterialRed500, cardwidth=0.25\paperwidth, topheight=76pt]{\input{info_profile}}
+	\input{info_profile}
+	\columnbreak
+	\input{info_contacts}
+	\end{multicols}{}
+	\vspace{3pt}
 	\large
 	\materialCard[title=Experience, topcolor=MaterialRed500]{\input{info_experience}}{}
 
@@ -58,11 +65,15 @@
 
 	\large
 	\vspace{5pt}
-	\materialCard[title=Interests, topcolor=MaterialAmber500]{\input{info_interests}}
+	\materialCard[title=Competences, topcolor=MaterialAmber500]{\input{info_interests}}
 
 	\large
 	\vspace{5pt}
 	\materialCard[title=Awards, topcolor=MaterialPurple500]{\input{info_awards}}
+
+%	\large
+%	\vspace{5pt}
+%	\materialCard[title=Awards, topcolor=MaterialPurple500]{\input{info_awards}}
 \end{minipage}
 %\materialCard[title=Mater222222222222222222222222222ial123Card, image=MaterialRed500]{\begin{tabular}{c} This node \\ is \\ valuable \end{tabular}}{card2}\\\\
 \end{document}

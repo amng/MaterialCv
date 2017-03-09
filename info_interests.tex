@@ -1,26 +1,41 @@
-%!TEX root = cv.tex
-\newcommand{\textBox}[1]{
-\begin{tabular}{ p{\dimexpr 0.9\linewidth-4\tabcolsep} }
-  	{\normalsize #1}
+%!TEX root = material_cv.tex
+\normalsize
+\newcommand{\InterestEntry}[4]{
+\begin{tabular}{p{\dimexpr 0.3\linewidth-2\tabcolsep} 
+                p{\dimexpr #4\linewidth-2\tabcolsep}}
+  \textbf{\textcolor{MaterialOrange900}{#1}}\textbf{\textcolor{MaterialOrange700}{#2}} &\normalsize #3\\
 \end{tabular}
-\vspace{1pt}
 }
 
-%\LARGE
-%\noindent\colorbox{MaterialAmber500}
-%{\parbox[c][25pt][c]{\textwidth}{\hspace{15pt}\textcolor{white}{Interests}}} %%Contacts separator
+
+%\Large
+%\noindent\colorbox{materialBlue}
+%{\parbox[c][25pt][c]{\textwidth}{\textcolor{white}{\textbf{Competences}}}} %%Contacts separator
+\begin{minipage}[t]{0.85\linewidth}
+\large
+%\textcolor{MaterialAmber700}{\textbf{Program\textcolor{MaterialGrey700}{ming}}}
+\normalsize
 
 %%Contact Information
-\large
-\begin{minipage}[t]{0.83\linewidth}
-\textcolor{MaterialAmber500}{\textbf{Profes}}\textcolor{MaterialGrey700}{\textbf{sional:}}\\
-\textBox{
-professional interests.... %%edit professional interest here
-}\\
+\InterestEntry{professional}{interests}{list of professional interests....}{0.85}
+\InterestEntry{personal}{interests}{list of personal interests....}{0.85}
 
-
-\textcolor{MaterialAmber500}{\textbf{Pers}}\textcolor{MaterialGrey700}{\textbf{onal:}}\\
-\textBox{
-personal interests....%%edit professional interest here
-}\\
 \end{minipage}
+
+
+
+%%Contact Information
+%\large
+%\vspace*{10pt}
+%
+%\textcolor{materialBlue}{\textbf{Profes}}\textcolor{textGray}{\textbf{sional:}}\\
+%\textBox{
+%professional interests.... %%edit professional interest here
+%}\\
+%
+%\textcolor{materialBlue}{\textbf{Pers}}\textcolor{textGray}{\textbf{onal:}}\\
+%\textBox{
+%personal interests....%%edit professional interest here
+%}\\
+%
+%\vspace*{10pt}

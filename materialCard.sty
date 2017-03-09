@@ -23,11 +23,12 @@
 \define@key{materialcard}{topcolor}{\def\materialcard@topcolor{#1}}
 \define@key{materialcard}{bottomcolor}{\def\materialcard@bottomcolor{#1}}
 \define@key{materialcard}{title}{\def\materialcard@title{#1}}
+\define@key{materialcard}{titlecolor}{\def\materialcard@titlecolor{#1}}
 \define@key{materialcard}{topimage}{\def\materialcard@topimage{#1}}
 \define@key{materialcard}{bottomimage}{\def\materialcard@bottomimage{#1}}
 \define@key{materialcard}{completeimage}{\def\materialcard@completeimage{#1}}
 % ========= KEY DEFAULTS =========
-\setkeys{materialcard}{title=,topimage=,cardwidth=0.9\paperwidth, topcolor=white, bottomcolor=white, topheight=15pt}
+\setkeys{materialcard}{title=,topimage=,cardwidth=0.9\paperwidth, topcolor=white, bottomcolor=white, topheight=15pt, titlecolor=white}
 
 
 %http://tex.stackexchange.com/questions/11272/faded-drop-shadow-using-tikz-based-rounded-rectangle
@@ -107,17 +108,18 @@
   % #1 => the arguments given in []
   % #2 => the content of the bottom of the card
   \let\materialcard@topimage\undefined
-  \setkeys{materialcard}{cardwidth=0.9\paperwidth, topheight=15pt}
+  \let\materialcard@completeimage\undefined
+  \setkeys{materialcard}{cardwidth=0.9\paperwidth, topheight=15pt, titlecolor=white}
 	\setkeys{materialcard}{#1} % Set new keys
   \begin{tikzpicture}
       \node[rectangle split,
             rectangle split parts=2,
             rectangle split part fill={\materialcard@topcolor,\materialcard@bottomcolor},
-            opacity=.0,text opacity=1,
+            opacity=0,text opacity=1,
             rounded corners=0.5pt]
          (materialCard){
          \nodepart{one} 
-                    \begin{minipage}[t][\materialcard@topheight]{\materialcard@cardwidth}\vspace{4pt}\textcolor{white}{\materialcard@title}\vspace{2pt}\end{minipage}
+                    \begin{minipage}[t][\materialcard@topheight]{\materialcard@cardwidth}\vspace{4pt}\hspace{5pt}\textcolor{\materialcard@titlecolor}{\materialcard@title}\vspace{2pt}\end{minipage}
          \nodepart{two}  #2};
       \addcurlyshadow{materialCard}
       \drawimage{materialCard}
